@@ -163,8 +163,11 @@ app.get('/:search_field/:search_keyword', function(req,res) {
 				res.status(200).json(results);
 			}
 			else {
+				var message = {};
+				message[message] = 'No matching document';
+				message[req.params.search_field] = req.params.search_keyword;
 				fieldname = 
-				res.status(200).json({message: 'No matching document', [req.params.search_field] : req.params.search_keyword});
+				res.status(200).json(message);
 			}
 			db.close();
     	});
