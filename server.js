@@ -62,7 +62,10 @@ app.delete('/:field/:keyword',function(req,res) {
 			}
        		//console.log('Restaurant removed!')
        		db.close();
-			res.status(200).json({message: 'delete done', [req.params.field] : req.params.keyword});
+			var message = {};
+			message[message] = 'delete done';
+			message[req.params.field] = req.params.keyword;
+			res.status(200).json(message);
     	});
     });
 });
