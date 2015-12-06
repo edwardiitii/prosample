@@ -62,10 +62,10 @@ app.delete('/:field/:keyword',function(req,res) {
 			}
        		//console.log('Restaurant removed!')
        		db.close();
-			var message = {};
-			message[message] = 'delete done';
-			message[req.params.field] = req.params.keyword;
-			res.status(200).json(message);
+			var mag = {};
+			mag[message] = 'delete done';
+			mag[req.params.field] = req.params.keyword;
+			res.status(200).json(mag);
     	});
     });
 });
@@ -163,11 +163,11 @@ app.get('/:search_field/:search_keyword', function(req,res) {
 				res.status(200).json(results);
 			}
 			else {
-				var message = {};
-				message[message] = 'No matching document';
-				message[req.params.search_field] = req.params.search_keyword;
+				var mag = {};
+				mag[message] = 'No matching document';
+				mag[req.params.search_field] = req.params.search_keyword;
 				fieldname = 
-				res.status(200).json(message);
+				res.status(200).json(mag);
 			}
 			db.close();
     	});
