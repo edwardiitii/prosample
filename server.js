@@ -20,12 +20,20 @@ app.post('/',function(req,res) {
 		rObj.address = {};
 		rObj.address.building = req.body.building;
 		rObj.address.street = req.body.street;
+		if(req.body.zipcode){
 		rObj.address.zipcode = req.body.zipcode;
+		}
+		if(req.body.lon){
 		rObj.address.coord = [];
 		rObj.address.coord.push(req.body.lon);
 		rObj.address.coord.push(req.body.lat);
+		}
+		if(req.body.borough){
 		rObj.borough = req.body.borough;
+		}
+		if(req.body.cuisine){
 		rObj.cuisine = req.body.cuisine;
+		}
 		rObj.name = req.body.name;
 		rObj.restaurant_id = req.body.restaurant_id;
 
@@ -63,7 +71,7 @@ app.delete('/:field/:keyword',function(req,res) {
        		//console.log('Restaurant removed!')
        		db.close();
 			var mag = {};
-			mag[message] = 'delete done';
+			mag['message'] = 'delete done';
 			mag[req.params.field] = req.params.keyword;
 			res.status(200).json(mag);
     	});
@@ -164,7 +172,7 @@ app.get('/:search_field/:search_keyword', function(req,res) {
 			}
 			else {
 				var mag = {};
-				mag[message] = 'No matching document';
+				mag['message'] = 'No matching document';
 				mag[req.params.search_field] = req.params.search_keyword;
 				fieldname = 
 				res.status(200).json(mag);
