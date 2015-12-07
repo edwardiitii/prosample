@@ -17,6 +17,7 @@ app.post('/',function(req,res) {
 	db.on('error', console.error.bind(console, 'connection error:'));
 	db.once('open', function (callback) {
 		var rObj = {};
+		if(req.body.building&&req.body.street){
 		rObj.address = {};
 		rObj.address.building = req.body.building;
 		rObj.address.street = req.body.street;
@@ -27,7 +28,7 @@ app.post('/',function(req,res) {
 		rObj.address.coord = [];
 		rObj.address.coord.push(req.body.lon);
 		rObj.address.coord.push(req.body.lat);
-		}
+		}}
 		if(req.body.borough){
 		rObj.borough = req.body.borough;
 		}
