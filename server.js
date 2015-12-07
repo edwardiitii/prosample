@@ -23,7 +23,7 @@ app.post('/',function(req,res) {
 		if(req.body.zipcode){
 		rObj.address.zipcode = req.body.zipcode;
 		}
-		if(req.body.lon){
+		if(req.body.lon&&req.body.lat){
 		rObj.address.coord = [];
 		rObj.address.coord.push(req.body.lon);
 		rObj.address.coord.push(req.body.lat);
